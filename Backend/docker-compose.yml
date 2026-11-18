@@ -1,0 +1,23 @@
+# Local PostgreSQL for the teamdesk backend. Not a production setup.
+# Persistent data lives in the named volume "pgdata".
+
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: teamdesk-db
+    environment:
+      POSTGRES_USER: teamdesk
+      POSTGRES_PASSWORD: teamdesk
+      POSTGRES_DB: teamdesk
+    ports:
+      - "5432:5432" # change the host side (e.g. "5433:5432") if 5432 is already in use locally
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U teamdesk -d teamdesk"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
