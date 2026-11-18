@@ -1,0 +1,42 @@
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+coverage/
+
+# Logs
+logs/
+*.log
+
+# Credentials
+*.pem
+*.key
+google-credentials*.json
+credentials.json
+
+# Local backups
+backend-backup-before-verification/
+
+# Database backups
+*.dump
+*.sql
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Exclude local verification script
+Backend/scripts/verify_e2e.ts
+
+# Executable installers
+*.exe
