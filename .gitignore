@@ -28,6 +28,8 @@ backend-backup-before-verification/
 # Database backups
 *.dump
 *.sql
+!Backend/drizzle/*.sql
+!drizzle/*.sql
 
 # Editor and OS files
 .vscode/
